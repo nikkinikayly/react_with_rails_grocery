@@ -11,12 +11,11 @@ class Api::ItemsController < ApplicationController
     end
     
     def create
-        item = List.items.new(item_params)
-    
-        if product.save
-        render json: item
+        @item = @list.items.new(item_params)
+        if @item.save
+        render json: @item
         else
-        render json: item.errors, status: 422
+        render json: @item.errors, status: 422
         end
     end
     
@@ -36,7 +35,7 @@ class Api::ItemsController < ApplicationController
         def set_list
             @list = List.find(params[:list_id])
         end
-        def set_product
+        def set_item
         @item = @list.items.find(params[:id])
         end
     

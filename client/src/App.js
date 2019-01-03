@@ -6,6 +6,7 @@ import Navbar from "./components/Navbar";
 import Lists from './components/Lists';
 import List from './components/List';
 import Items from './components/Items';
+import Item from './components/Item';
 import { Container } from "semantic-ui-react";
 
 
@@ -18,6 +19,7 @@ const App = () => (
         <Route exact path="/lists" component={Lists} />
         <Route exact path="/lists/:id" component={List} />
         <Route exact path="/lists/:id/items" component={Items} />
+        <Route exact path="/lists/:id/items/:id" component={Item} />
         <Route component={NoMatch} />
       </Switch>
     </Container>

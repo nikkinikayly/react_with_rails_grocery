@@ -3,6 +3,7 @@ import axios from 'axios'
 import ListForm from './ListForm';
 import ItemForm from'./ItemForm';
 import { Link } from 'react-router-dom';
+import { Segment } from 'semantic-ui-react';
 
 class List extends React.Component {
   state = { list: {}, edit: false, showForm: false }
@@ -56,9 +57,11 @@ form = () => {
     const { edit } = this.state
     return (
       <div>
+        <Segment>
         {edit ? this.edit() : this.showList()}
         <button onClick={this.toggleEdit}>{ edit ? 'Cancel' : 'Edit' }</button>
         <button><Link to={`/lists/${this.props.match.params.id}/items`}>View Items</Link></button>
+        </Segment>
       </div>
     )
   }

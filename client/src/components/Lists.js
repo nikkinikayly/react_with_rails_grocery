@@ -3,7 +3,7 @@ import axios from 'axios';
 import { Link } from 'react-router-dom';
 
 // import List from './List';
-import { Header, Segment } from 'semantic-ui-react';
+import { Header, Segment, Button, Icon } from 'semantic-ui-react';
 import ListForm from './ListForm';
 
 
@@ -41,8 +41,20 @@ class Lists extends React.Component {
         return this.state.lists.map(p => {
           return (
               <Segment key={p.id}>
-                <Link to={`/lists/${p.id}`}>{p.name}</Link>
-                <button onClick={this.deleteList}>Delete</button>
+                <Link 
+                to={`/lists/${p.id}`}>
+                {p.name}
+                </Link>
+                <Button
+                    icon
+                    color="red"
+                    size="small"
+                    onClick={() => this.deleteList(p.id)}
+                    style={{marginLeft: "16px"}}
+                >
+                    <Icon name="trash" />
+                </Button>
+                
             </Segment>
           )
         })

@@ -1,21 +1,19 @@
 import React from 'react'
 import axios from 'axios'
-import ListForm from './ListForm';
 import ItemForm from'./ItemForm';
-import { Link } from 'react-router-dom';
 
 class Item extends React.Component {
   state = { item: {name: '', price: ''}, edit: false, showForm: false }
 
   componentDidMount() {
-    axios.get(`/api/lists/${this.props.match.params.id}/items/${this.state.id}`)
+    axios.get(`/api/lists/${this.props.match.params.list.id}/items/${this.props.match.params.id}`)
       .then(res => {
         this.setState({ item: res.data })
       })
   }
 
   toggleEdit = () => {
-    this.setState(state => {
+    this.setState( state => {
       return { edit: !this.state.edit }
     })
   }
@@ -55,8 +53,9 @@ form = () => {
     const { edit } = this.state
     return (
       <div>
-        {edit ? this.edit() : this.showList()}
+        {edit ? this.edit() : this.showItem()}
         <button onClick={this.toggleEdit}>{ edit ? 'Cancel' : 'Edit' }</button>
+        <p>{this.state.name}</p>
         <p>{this.state.price}</p>
       </div>
     )
@@ -64,4 +63,4 @@ form = () => {
 
 }
 
-export default Product
+export default Item;
