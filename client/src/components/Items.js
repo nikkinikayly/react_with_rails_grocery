@@ -19,10 +19,8 @@ class Items extends React.Component {
         })
     }
 
-    toggleEditForm = () => {
-        this.setState( state => {
-            return { edit: !this.state.edit }
-        })
+    completeItem = () => {
+
     }
 
     edit = () => {
@@ -48,9 +46,9 @@ class Items extends React.Component {
             <Button 
                 color="blue"
                 size="small"
-                onClick={() => this.toggleEditForm}
+                onClick={() => this.completeItem}
                 style={{marginLeft: '16px'}}
-            >Edit</Button>
+            >Complete</Button>
             <Button 
                 icon
                 color="red"

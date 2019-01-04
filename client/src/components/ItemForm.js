@@ -12,8 +12,8 @@ class ItemForm extends React.Component {
 
     handleSubmit = (e) => {
         e.preventDefault();
-        const list = { ...this.state }
-        this.props.submit(list)
+        const item = { ...this.state }
+        this.props.submit(item)
         this.setState({ ...this.defaultValues })
       }
 
@@ -32,7 +32,7 @@ class ItemForm extends React.Component {
                 />
                 <input
                 name="price"
-                placeholder="Price Name"
+                placeholder="Price"
                 value={this.state.price}
                 onChange={this.handleChange}
                 />
